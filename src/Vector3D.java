@@ -10,9 +10,41 @@ public class Vector3D{
 		this.z = z;
 	}
 	
-	public Vector3D add     (Vector3D other) {return new Vector3D(this.x + other.x,  this.y + other.y,  this.z + other.z);}	
-	public Vector3D subtract(Vector3D other) {return new Vector3D(this.x - other.x,  this.y - other.y,  this.z - other.z);}
-	public Vector3D mult    (float mult    ) {return new Vector3D(this.x * mult   ,  this.y * mult   ,  this.z*mult);     }
-	public float    dot     (Vector3D other) {return             (this.x * other.x + this.y * other.y + this.z * other.z);}
-	public Vector3D cross   (Vector3D other) {return new Vector3D(y * other.z - z * other.y, z * other.x - x * other.z, x * other.y - y * other.x);}
+	public float ind(int i) {
+		switch(i) {
+		case 0:
+			return x;
+		case 1:
+			return y;
+		case 2:
+			return z;
+		}
+		return -1;
+	}
+	
+	public float dot(Vector3D other) {
+		return (this.x * other.x + this.y * other.y + this.z * other.z);
+	}
+	public float normal() {
+		return x * x + y * y + z * z;
+	}
+	public float length() {
+		return (float) Math.sqrt(normal());
+	}
+	public Vector3D add(Vector3D other) {
+		return new Vector3D(this.x + other.x, this.y + other.y, this.z + other.z);
+	}	
+	public Vector3D subtract(Vector3D other) {
+		return new Vector3D(this.x - other.x, this.y - other.y, this.z - other.z);
+	}
+	public Vector3D mult(float mult) {
+		return new Vector3D(this.x * mult, this.y * mult, this.z*mult);
+	}
+	public Vector3D cross(Vector3D other) {
+		return new Vector3D(this.y * other.z - this.z * other.y, 
+				            this.z * other.x - this.x * other.z, 
+				            this.x * other.y - this.y * other.x);
+	}
+	
+	
 }
