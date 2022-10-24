@@ -24,4 +24,30 @@ public class Matrix44 {
         x[3][2] = o; 
         x[3][3] = p; 
 	}
+	
+	Matrix44 multiply(Matrix44 other) {
+		Matrix44 result = new Matrix44();
+		multiply(this, other, result);
+		return result;
+	}
+	
+	static void multiply(Matrix44 a, Matrix44 b, Matrix44 c) {
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
+				c.x[i][j] = a.x[i][0] * b.x[0][j] + a.x[i][1] * b.x[1][j] + a.x[i][2] * b.x[2][j] + a.x[i][3] * b.x[3][j];
+			}
+		}
+	}
+	
+	Matrix44 transposed() {
+		Matrix44 result = new Matrix44();
+		for(int i = 0; i < 4; i++) {
+			for(int j = 0; j < 4; j++) {
+				result.x[i][j] = x[j][i];
+			}
+		}
+		return result;
+	}
+	
+
 }
