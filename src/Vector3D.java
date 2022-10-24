@@ -8,6 +8,7 @@ public class Vector3D{
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		
 	}
 	
 	public float ind(int i) {
