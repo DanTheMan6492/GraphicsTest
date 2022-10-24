@@ -1,14 +1,14 @@
+package Geometry;
 
 public class Vector3D{
 	public float x, y, z;
 	
-	public Vector3D(                         ) {} //variables are initialized to 0 implicitly
+	public Vector3D() {} //variables are initialized to 0 implicitly
 	public Vector3D(float x                  ) {this(x, x, x);}
 	public Vector3D(float x, float y, float z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		
 	}
 	
 	public float ind(int i) {
@@ -45,6 +45,21 @@ public class Vector3D{
 		return new Vector3D(this.y * other.z - this.z * other.y, 
 				            this.z * other.x - this.x * other.z, 
 				            this.x * other.y - this.y * other.x);
+	}
+	
+	public Vector3D normalize() {
+		float n = normal();
+		if(n > 0) {
+			float factor = (float) (1 / Math.sqrt(n));
+			x *= factor;
+			y *= factor;
+			z *= factor;
+		}
+		return this;
+	}
+	
+	public String toString() {
+		return "(" + x + "," + y + "," + z + ")";
 	}
 	
 	
