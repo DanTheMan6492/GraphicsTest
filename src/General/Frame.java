@@ -20,13 +20,22 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import Geometry.Matrix44;
 import Geometry.Vector3D;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener{
 
 
     public static void main(String[] args) {
-        new Frame();
+        //new Frame();
+    	Vector3D v = new Vector3D(0, 1, 2);
+    	System.out.println(v);
+    	Matrix44 a = new Matrix44();
+    	Matrix44 b = new Matrix44();
+    	Matrix44 c = a.multiply(b);
+    	Matrix44 d = new Matrix44(0.707107f, 0f, -0.707107f, 0f, -0.331295f, 0.883452f, -0.331295f, 0f, 0.624695f, 0.468521f, 0.624695f, 0f, 4.000574f, 3.00043f, 4.000574f, 1f); 
+        System.out.println(d);
+        System.out.println(d.inverse());
     }
 
     public void paint(Graphics g){
